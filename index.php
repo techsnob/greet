@@ -20,47 +20,33 @@ body {
 		url(https://media.giphy.com/media/hZjz3XKyRXhv2/giphy.gif);
 	font-weight: 500;
 }
-
 a {
 	text-decoration: none;
 	color: black;
 	font-style: italic;
 	font-size: larger;
 }
-
 input[type="text"]{
     display: inline-block;
-    width: 500px;
-    height: 40px;
-    box-sizing: border-box;
     outline: none;
     border: 1px solid lightgray;
     border-radius: 3px;
-    padding: 10px 10px 10px 100px;
+    padding: 10px 10px 10px 10px;
     transition: all 0.1s ease-out;
   }
-      
-  input[type="text"]:focus{
-    padding: 10px;
-/*     transition: all 0.3s ease-out; */
-/*     transition-delay: 0.2s; */
-    width:800px;
-}
 .footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 }
-
 div p {
 	display: inline-block;
 }
-
 .glitter {
-	margin: 2%;
+	padding: 2%;
+    margin-left: 10%;
 	height: 5rem;
-	font-size: 5rem;
-	font-size: 100px;
+    font-size: 5rem !important;
 	font-family: impact;
 	-webkit-text-fill-color: transparent;
 	background: -webkit-linear-gradient(transparent, transparent),
@@ -68,14 +54,24 @@ div p {
 	background: -o-linear-gradient(transparent, transparent);
 	-webkit-background-clip: text;
 }
+@media only screen and (max-width : 480px) {
+    body {
+        background: cover;
+        font-size: 10px;
+        background-size: auto !important;
+    }
+    .glitter{
+    font-size: 1.5rem !important;
+    }
+}
 </style>
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-6300888793339990",
     enable_page_level_ads: true
   });
-</script> -->
+</script>
 </head>
 <body>
 <?php
@@ -112,12 +108,13 @@ function test_input($data)
 		<div class="pure-u-1 form-box">
 			<div class="l-box">
 				<form method="get"
-					action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" 
+					style="margin-left: 34%;margin-top: 15%;">
 					<input type="text" name="name" value="<?php echo $name;?>"
 						placeholder="Enter your name..." style="width: 35%;">
 					<button type="submit" class="pure-button-primary">Submit</button>
-					<div class="glitter">Happy new year <?php echo $name;?></div>
 				</form>
+				<div class="glitter">Happy new year <?php echo $name;?></div>
 			</div>
 		</div>
 	</div>
