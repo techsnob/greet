@@ -20,57 +20,116 @@ body {
 		url(https://media.giphy.com/media/hZjz3XKyRXhv2/giphy.gif);
 	font-weight: 500;
 }
+
 a {
 	text-decoration: none;
 	color: black;
 	font-style: italic;
 	font-size: larger;
 }
-input[type="text"]{
-    display: inline-block;
-    outline: none;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    padding: 10px 10px 10px 10px;
-    transition: all 0.1s ease-out;
-  }
+
+input[type="text"] {
+	display: inline-block;
+	outline: none;
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	padding: 10px 10px 10px 10px;
+	transition: all 0.1s ease-out;
+}
+
 .footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 }
+
 div p {
 	display: inline-block;
 }
+
 .glitter {
-	padding: 2%;
-    margin-left: 10%;
-	height: 5rem;
-    font-size: 5rem !important;
-	font-family: impact;
-	-webkit-text-fill-color: transparent;
-	background: -webkit-linear-gradient(transparent, transparent),
-		url(http://www.myspacehippo.com/files/glitterbacks/bg345.gif) repeat;
-	background: -o-linear-gradient(transparent, transparent);
-	-webkit-background-clip: text;
+	box-sizing: content-box;
+	padding: 20px;
+	border: none;
+	font: normal 50px/1 "Monoton", Helvetica, sans-serif;
+	color: rgba(255, 255, 255, 1);
+	text-align: center;
+	text-overflow: ellipsis;
+	text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255), 0
+		0 30px rgb(255, 255, 255), 0 0 40px rgb(255, 17, 119), 0 0 70px
+		rgb(255, 17, 119), 0 0 80px rgb(255, 17, 119), 0 0 100px
+		rgb(255, 17, 119), 0 0 150px rgb(255, 17, 119);
+	transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
+
+.glitter:hover {
+	text-shadow: 0 0 5px rgb(255, 255, 255), 0 0 10px rgb(255, 255, 255), 0
+		0 15px rgb(255, 255, 255), 0 0 20px rgb(255, 17, 119), 0 0 35px
+		rgb(255, 17, 119), 0 0 40px rgb(255, 17, 119), 0 0 50px
+		rgb(255, 17, 119), 0 0 75px rgb(255, 17, 119);
+}
+
 @media only screen and (max-width : 480px) {
-    body {
-        background: cover;
-        font-size: 10px;
-        background-size: auto !important;
-    }
-    .glitter{
-    font-size: 1.5rem !important;
-    }
+	body {
+		background: cover;
+		font-size: 10px;
+		background-size: auto !important;
+	}
+	#whatsappshare {
+		background-color: #02dc1d;
+		color: black;
+		border-radius: 10px;
+		padding: 5px;
+		text-align: center;
+		font-size: 15px;
+		visibility: visible !important;
+		margin: 15px;
+	}
+	form {
+		margin-left: 15% !important;
+		margin-top: 15%;
+	}
+	#demo {
+		font: normal 20px/1 "Monoton" !important;
+		color: rgba(255, 255, 255, 1);
+		text-align: center;
+	}
+	input[type="text"] {
+		width: 80% !important;
+	}
+	button {
+		border-radius: 3px;
+		width: 80%;
+		margin-left: 4%;
+	}
+}
+
+#demo {
+	font: normal 50px/1 "Monoton";
+	color: rgba(255, 255, 255, 1);
+	text-align: center;
+}
+
+#whatsappshare {
+	visibility: hidden;
 }
 </style>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6300888793339990",
-    enable_page_level_ads: true
-  });
+<script type="text/javascript">
+var countDownDate = new Date("Jan 01, 2018 00:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("demo").innerHTML = days + "<i> Days,</i> " + hours + " <i>Hrs,</i> "
+  + minutes + "<i> Min,</i> " + seconds + "<i> Sec</i> ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "";
+  }
+}, 1000);
 </script>
 </head>
 <body>
@@ -105,24 +164,32 @@ function test_input($data)
 }
 ?>
 	<div class="pure-g">
-		<div class="pure-u-1 form-box">
+		<div class="pure-u-1">
 			<div class="l-box">
+				<div id="demo"></div>
 				<form method="get"
-					action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" 
-					style="margin-left: 34%;margin-top: 15%;">
+					action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+					style="margin-left: 34%; margin-top: 15%;">
 					<input type="text" name="name" value="<?php echo $name;?>"
 						placeholder="Enter your name..." style="width: 35%;">
-					<button type="submit" class="pure-button-primary">Submit</button>
+					<button type="submit" class="pure-button-primary">Go</button>
 				</form>
-				<div class="glitter">Happy new year <?php echo $name;?></div>
+				<div class="pure-u-1">
+					<div class="glitter">
+            			Wish you a happy new year <?php echo $name;?>
+            		</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="footer">
-		<p style="margin-left: 2%;">
+		<div id="whatsappshare">
+			<a href="whatsapp://send?text=">Share on Whatsapp</a>
+		</div>
+		<!--<p style="margin-left: 2%;">
 			<a href="">©Techsnob</a>
 		</p>
-		<p style="float: right; margin-right: 2%;">Made with &#10084;</p>
+		<p style="float: right; margin-right: 2%;">Made with &#10084;</p> -->
 	</div>
 </body>
 </html>
