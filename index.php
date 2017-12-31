@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="New year greeting from Techsnob!!!">
+<meta name="description" content="Wish your friends in a new way!!!">
 <title>New year greetings!</title>
 <link rel="stylesheet"
 	href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
@@ -72,6 +72,7 @@ div p {
 @media only screen and (max-width : 480px) {
 	body {
 		background: cover;
+		background-image: url(bg-image.gif);
 		font-size: 10px;
 		background-size: auto !important;
 	}
@@ -87,7 +88,7 @@ div p {
 	}
 	form {
 		margin-left: 15% !important;
-		margin-top: 15%;
+		margin-top: 20%;
 	}
 	#demo {
 		font: normal 20px/1 "Monoton" !important;
@@ -130,6 +131,11 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "";
   }
 }, 1000);
+
+function openwhatsapp(){
+	var loca = "whatsapp://send?text="+window.location.href;
+	document.getElementById("whatsapplink").setAttribute("href", loca);
+}
 </script>
 </head>
 <body>
@@ -183,8 +189,8 @@ function test_input($data)
 		</div>
 	</div>
 	<div class="footer">
-		<div id="whatsappshare">
-			<a href="whatsapp://send?text=">Share on Whatsapp</a>
+		<div id="whatsappshare" >
+			<a id="whatsapplink" onclick="openwhatsapp()">Share on Whatsapp</a>
 		</div>
 		<!--<p style="margin-left: 2%;">
 			<a href="">©Techsnob</a>
